@@ -13,6 +13,9 @@ const express = require("express");
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
 
+// require spotify-web-api-node package here:
+
+const SpotifyWebApi = require("spotify-web-api-node");
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
@@ -20,6 +23,31 @@ require("./config")(app);
 
 const capitalize = require("./utils/capitalize");
 const projectName = "Inception";
+
+// setting the spotify-api goes here:
+const spotifyApi = new SpotifyWebApi({
+  clientId: process.env.CLIENT_ID,
+  clientSecret: process.env.CLIENT_SECRET,
+});
+
+// Retrieve an access token
+spotifyApi
+  .clientCredentialsGrant()
+  .then((data) => spotifyApi.setAccessToken(data.body["access_token"]))
+  .catch((error) =>
+    console.log("Something went wrong when retrieving an access token", error)
+  );
+/* 
+async function credentials() {
+  try {
+    let data = await spotifyApi.clientCredentialsGrant();
+    spotifyApi.setAccessToken(data.body["access_token"]);
+  } catch (error) {
+    console.log("Something went wrong when retrieving an access token", error);
+  }
+}
+
+credentials(); */
 
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
 
