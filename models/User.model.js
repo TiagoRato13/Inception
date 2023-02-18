@@ -5,8 +5,9 @@ const userSchema = new Schema(
   {
     username: {
       type: String,
-      required: false,
-      unique: true,
+      required: true,
+      unique: false,
+      lowercase: true,
       trim: true,
     },
     email: {
@@ -15,11 +16,20 @@ const userSchema = new Schema(
       unique: true,
       trim: true,
       lowercase: true,
+      match: [/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, "Please enter a valid email"],
     },
     password: {
       type: String,
       required: true,
+      unique: false,
+      trim: true,
     },
+    folderId: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Folder",
+      },
+    ],
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
