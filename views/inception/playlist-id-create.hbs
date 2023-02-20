@@ -1,0 +1,14 @@
+<h1>SUB playlistID</h1>
+
+<form action="/playlist/create-playlist" method="post">
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name" />
+
+  <label for="image">Image:</label>
+  <input type="file" name="image" id="image" />
+
+  <input type="text" name="{{Folder.playlist}}" id="folder-playlist" hidden />
+
+  <button type="submit">Create Playlist</button>
+
+</form>

@@ -1,7 +1,9 @@
 <h1>HOME</h1>
 
-{{#each thisUser.folderId}}
-    {{> playlistFolderPartial}}
-{{/each}}
+<div class="eachCard">
+    {{#each thisUser.folderId}}
+        {{> playlistFolderPartial}}
+    {{/each}}
+</div>
 <br /><br /><br />
-<a href="/create-playlist"><button>Create playlist</button></a>
+<a href="/create-playlist"><button>Create a new playlist</button></a>

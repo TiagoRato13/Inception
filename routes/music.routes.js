@@ -23,11 +23,13 @@ spotifyApi
   );
 
 router.get("/home", isLoggedIn, async (req, res, next) => {
-  let user = req.session.currentUser.username;
-  let thisUser = await User.findOne({ user }).populate("folderId");
+  const user = req.session.currentUser.username;
+  const thisUser = await User.findOne({ user }).populate("folderId");
 
   res.render("inception/home", { thisUser });
 });
+
+/* --- CREATE PLAYLIST --- */
 
 router.get("/create-playlist", (req, res) =>
   res.render("inception/playlist-create")
@@ -54,5 +56,46 @@ router.post("/create-playlist", async (req, res, next) => {
     console.log(error), next(error);
   }
 });
+
+/* --- PLAYLIST ID --- */
+
+router.get("/playlist/:id", isLoggedIn, async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const folder = await Folder.findById(id);
+    /* console.log(folder); */
+    res.render("inception/playlist-id", { folder });
+  } catch (error) {
+    console.log(error), next(error);
+  }
+});
+
+/* ---PLAYLIST ID - CREATE --- */
+router.get("/playlist/create-playlist", async (req, res) =>
+  res.render("inception/playlist-id-create")
+);
+
+/* router.post("/playlist/create-playlist", async (req, res, next) => {
+  let { name, image } = req.body;
+  let user = req.session.currentUser;
+  let folder;
+  if (image !== "") {
+    folder = await Folder.create({ name, image });
+  } else {
+    folder = await Folder.create({ name });
+  }
+  console.log(folder);
+  await User.findByIdAndUpdate(
+    user._id,
+    { $push: { folderId: folder } },
+    { new: true }
+  );
+  res.redirect("/home");
+  try {
+  } catch (error) {
+    console.log(error), next(error);
+  }
+}); */
 
 module.exports = router;
