@@ -38,10 +38,19 @@ body {
   opacity: 1;
 }
 
+/* CARD CARD-DELETE */
+.card-delete {
+  background-image: url("/public/images/delete.svg");
+  width: 100px;
+  position: absolute;
+  background-color: black;
+  top: 0;
+}
+
 /* CARD CARD-IMAGE */
 
 .image-icon {
-  border: 3px solid white;
+  border: 1px solid white;
   width: 80%;
   border-radius: 50%;
   padding: 20px;

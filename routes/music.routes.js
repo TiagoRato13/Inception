@@ -23,10 +23,9 @@ spotifyApi
   );
 
 router.get("/home", isLoggedIn, async (req, res, next) => {
-  const user = req.session.currentUser.username;
-  const thisUser = await User.findOne({ user }).populate("folderId");
-
-  res.render("inception/home", { thisUser });
+  const user = req.session.currentUser._id;
+  const currentUser = await User.findById(user).populate("folderId");
+  res.render("inception/home", { currentUser });
 });
 
 /* --- CREATE PLAYLIST --- */
@@ -57,38 +56,27 @@ router.post("/create-playlist", async (req, res, next) => {
   }
 });
 
-/* --- PLAYLIST ID --- */
+/* ---PLAYLIST ID - CREATE SUBFOLDER --- */
+router.get("/playlist/:id/create-playlist", async (req, res) => {
+  const id = req.params.id;
+  const playlistName = await Folder.findById(id);
 
-router.get("/playlist/:id", isLoggedIn, async (req, res, next) => {
-  try {
-    const { id } = req.params;
-
-    const folder = await Folder.findById(id);
-    /* console.log(folder); */
-    res.render("inception/playlist-id", { folder });
-  } catch (error) {
-    console.log(error), next(error);
-  }
+  res.render("inception/playlist-id-create", { playlistName });
 });
 
-/* ---PLAYLIST ID - CREATE --- */
-router.get("/playlist/create-playlist", async (req, res) =>
-  res.render("inception/playlist-id-create")
-);
-
-/* router.post("/playlist/create-playlist", async (req, res, next) => {
+router.post("/playlist/:id/create-playlist", async (req, res, next) => {
   let { name, image } = req.body;
   let user = req.session.currentUser;
-  let folder;
+  let playlist;
   if (image !== "") {
-    folder = await Folder.create({ name, image });
+    folder = await Playlist.create({ name, image });
   } else {
-    folder = await Folder.create({ name });
+    folder = await Playlist.create({ name });
   }
   console.log(folder);
-  await User.findByIdAndUpdate(
+  await Playlist.findByIdAndUpdate(
     user._id,
-    { $push: { folderId: folder } },
+    { $push: { playlist: playlist } },
     { new: true }
   );
   res.redirect("/home");
@@ -96,6 +84,20 @@ router.get("/playlist/create-playlist", async (req, res) =>
   } catch (error) {
     console.log(error), next(error);
   }
-}); */
+});
+
+/* --- PLAYLIST ID FOLDER--- */
+
+router.get("/playlist/:id", isLoggedIn, async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const folder = await Folder.findById(id);
+    res.render("inception/playlist-id", { folder });
+  } catch (error) {
+    console.log(error), next(error);
+  }
+});
+
+router.get("/playlist/subplaylist/:id");
 
 module.exports = router;
