@@ -27,9 +27,18 @@ body {
 }
 
 /*//////////////////////// CARD \\\\\\\\\\\\\\\\\\\\\\\\\*/
+.eachCard {
+  display: flex;
+  gap: 20px;
+}
+
+.eachCard a {
+  text-decoration: none;
+}
+
 .card {
   background-color: transparent;
-  width: 30vw;
+  width: 15vw;
   /*   border: 2px solid white; */
   border-radius: 5px;
   border-top-left-radius: 20%;
@@ -42,10 +51,14 @@ body {
 }
 
 .card:hover {
-  opacity: 1;
-  transition-duration: 1s;
+  opacity: 0.7;
+  transition-duration: 0.5s;
   background-color: rgb(19, 43, 56);
   color: rgba(255, 255, 255, 0.3);
+}
+
+.card:active {
+  opacity: 1;
 }
 
 /* CARD CARD-IMAGE */
@@ -145,3 +158,269 @@ body {
 }
 
 /*///////////////////// SONG TAB END \\\\\\\\\\\\\\\\\\\\\\\*/
+
+#menu-bar {
+  cursor: pointer;
+  /* not a real menu */
+
+  margin-top: 40px;
+  margin-left: 40px;
+  width: 40px;
+}
+
+#menu-bar span {
+  width: 100%;
+  height: 4px;
+  float: left;
+  margin-bottom: 6px;
+  background: #fff;
+}
+
+/* #song-info {
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#song-info h1 {
+  font-family: Roboto;
+  font-weight: 500;
+  color: #fff;
+  font-size: 46px;
+}
+
+#song-info p {
+  font-family: Roboto;
+  font-weight: 400;
+  color: #fff;
+  font-size: 26px;
+  margin-top: -30px;
+} */
+
+#content {
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  transition: background 0.3s ease-in, color 0.3s ease-in;
+  transition-duration: 0.3s, 0.3s;
+  transition-timing-function: ease-in, ease-in;
+  transition-delay: 0s, 0s;
+  transition-property: background, color;
+  background: rgba(255, 255, 255, 0.85);
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+/*
+CLEAN THAT BITCH
+*/
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+#content #range {
+  width: 100%;
+  margin-top: -10px;
+}
+/*
+RESTYLE THAT BITCH
+*/
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: #1b7c8f;
+  cursor: pointer;
+  margin-top: -8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+input[type="range"]::-webkit-slider-thumb:active {
+  height: 38px;
+  width: 38px;
+  margin-top: -18px;
+}
+
+input[type="range"]::-moz-slider-thumb:active {
+  height: 38px;
+  width: 38px;
+  margin-top: -18px;
+}
+
+input[type="range"]::-ms-slider-thumb:active {
+  height: 38px;
+  width: 38px;
+  margin-top: -18px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 28px;
+  width: 28px;
+  border-radius: 50px;
+  background: #1b7c8f;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+input[type="range"]::-ms-thumb {
+  height: 28px;
+  width: 28px;
+  border-radius: 50px;
+  background: #1b7c8f;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: #1b7c8f;
+}
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #1b7c8f;
+}
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: #ef6c00;
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: #ef6c00;
+}
+
+input[type="range"]::-ms-fill-lower {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: #ef6c00;
+}
+
+input[type="range"]:focus::-ms-fill-lower {
+  background: #ef6c00;
+}
+
+input[type="range"]::-ms-fill-upper {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: #ef6c00;
+}
+
+input[type="range"]:focus::-ms-fill-upper {
+  background: #ef6c00;
+}
+/*
+ OK, I NEED TO CALM DOWN
+*/
+
+#content #time {
+  float: left;
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
+}
+
+#content #time p {
+  color: #000;
+  font-family: Roboto;
+  font-weight: normal;
+  font-size: 21px;
+}
+
+#content #total-time {
+  float: left;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+}
+
+#content #total-time p {
+  color: #000;
+  font-family: Roboto;
+  font-weight: normal;
+  font-size: 21px;
+}
+
+#content #buttons {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  height: 120px;
+}
+
+#content #buttons i {
+  cursor: pointer;
+  padding-left: 50px;
+  line-height: 70px;
+}
+
+#repeat {
+  float: left;
+  position: absolute;
+  left: 100px;
+  font-size: 48px;
+  bottom: 10px;
+  color: black;
+  cursor: pointer;
+  /* not a button */
+}
+
+#random {
+  float: left;
+  position: absolute;
+  right: 50px;
+  font-size: 48px;
+  bottom: 10px;
+  color: black;
+  cursor: pointer;
+  /* not a button */
+}
+/*
+FINALLY
+*/
+
+#tip {
+  position: absolute;
+  display: none;
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+  background: #6fb514;
+  padding: 10px;
+  font-family: Roboto;
+  font-weight: normal;
+  font-size: 36px;
+  color: #fff;
+  top: -90px;
+  border-radius: 2px;
+}
