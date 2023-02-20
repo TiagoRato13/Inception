@@ -40,11 +40,12 @@ body {
 
 /* CARD CARD-DELETE */
 .card-delete {
-  background-image: url("/public/images/delete.svg");
-  width: 100px;
+  background-image: url("./public/images/delete.svg") !important;
+  width: 10%;
+  height: 7%;
   position: absolute;
-  background-color: black;
-  top: 0;
+  top: 5px;
+  right: 5px;
 }
 
 /* CARD CARD-IMAGE */
