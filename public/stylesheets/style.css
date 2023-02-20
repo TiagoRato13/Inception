@@ -1,12 +1,125 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: black;
 }
 
-a {
-  color: #00b7ff;
+/*//////////////////////// CARD \\\\\\\\\\\\\\\\\\\\\\\\\*/
+.card {
+  background-color: transparent;
+  width: 30vw;
+  /*   border: 2px solid white; */
+  border-radius: 5px;
+  border-top-left-radius: 20%;
+  border-bottom-right-radius: 20%;
+  text-align: center;
+  padding: 20px 5px 70px 5px;
+  color: rgba(255, 255, 255, 0.3);
+  transition-duration: 2s;
+  color: white;
 }
 
-h1 {
-  color: 15px;
+.card:hover {
+  opacity: 1;
+  transition-duration: 1s;
+  background-color: rgb(19, 43, 56);
+  color: rgba(255, 255, 255, 0.3);
 }
+
+/* CARD CARD-IMAGE */
+
+.image-icon {
+  border: 3px solid white;
+  width: 80%;
+  border-radius: 50%;
+  padding: 20px;
+  background-color: white;
+  opacity: 0.3;
+  transition-duration: 2s;
+}
+
+.card:hover .image-icon {
+  transition-duration: 1s;
+  opacity: 1;
+}
+
+/* CARD CARD-TITLE */
+.card-title {
+  margin: 0;
+}
+
+.card-title:hover {
+  color: white;
+}
+
+/*///////////////////// CARD END \\\\\\\\\\\\\\\\\\\\\\\*/
+/*/////////////////////// SONG TAB \\\\\\\\\\\\\\\\\\\\\\\\*/
+
+.song-tab {
+  transition-duration: 2s;
+  width: 90vw;
+  background-color: transparent;
+  padding: 5px 0;
+  border-radius: 40px;
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row;
+  max-height: 50px;
+}
+
+.song-tab-artist-image {
+  margin: 0 0 0 25px;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+}
+
+.song-tab:hover {
+  transition-duration: 1s;
+  background-color: grey;
+}
+
+.song-tab-artist,
+.song-tab-title {
+  margin: 0;
+  padding-left: 10px;
+  color: white;
+}
+
+.song-tab-artist {
+  width: 20%;
+}
+
+.song-tab-title {
+  width: 30%;
+}
+
+/* REPEAT BUTTON UNSELECTED */
+.song-tab-repeat-all,
+.song-tab-repeat-self {
+  width: 2.5%;
+  margin: 2px;
+  border: 2px solid black;
+  padding: 5px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.3;
+  box-shadow: inset 0 0 5px 1px rgb(0, 59, 96), 2px 2px 10px 1px black;
+}
+
+.song-tab-repeat-all:hover,
+.song-tab-repeat-self:hover {
+  opacity: 0.7;
+}
+
+.song-tab-repeat-all:active,
+.song-tab-repeat-self:active {
+  opacity: 1;
+}
+
+.song-tab-audio {
+  width: 30%;
+  padding: 0 10px;
+}
+
+/*///////////////////// SONG TAB END \\\\\\\\\\\\\\\\\\\\\\\*/
