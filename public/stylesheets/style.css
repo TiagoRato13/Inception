@@ -1,6 +1,30 @@
+#nav-top nav {
+  padding: 0.5rem 2rem;
+  padding-top: 0.5rem;
+  padding-right: 2rem;
+  padding-bottom: 0.5rem;
+  padding-left: 2rem;
+  transition: background 0.3s ease-in, color 0.3s ease-in;
+  transition-duration: 0.3s, 0.3s;
+  transition-timing-function: ease-in, ease-in;
+  transition-delay: 0s, 0s;
+  transition-property: background, color;
+}
+
+.bg-semi-light {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+.text-dark {
+  color: #343a40 !important;
+}
+
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url(public/images/image.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: saturate(4);
 }
 
 a {
