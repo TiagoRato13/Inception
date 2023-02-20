@@ -24,6 +24,10 @@ const userSchema = new Schema(
       unique: false,
       trim: true,
     },
+    administrator: {
+      type: String,
+      default: false,
+    },
     folderId: [
       {
         type: Schema.Types.ObjectId,

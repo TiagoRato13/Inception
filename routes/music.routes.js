@@ -2,6 +2,9 @@ const router = require("express").Router();
 const mongoose = require("mongoose");
 const User = require("../models/User.model");
 const Folder = require("../models/Folder.model");
+const fileUploader = require("../config/cloudinary.config");
+const isLoggedOut = require("../middleware/isLoggedOut");
+const isLoggedIn = require("../middleware/isLoggedIn");
 
 // require spotify-web-api-node package here:
 const SpotifyWebApi = require("spotify-web-api-node");
@@ -19,10 +22,11 @@ spotifyApi
     console.log("Something went wrong when retrieving an access token", error)
   );
 
-router.get("/home", (req, res) => {
-  /* let user = req.session.currentUser;
-  console.log(user); */
-  res.render("inception/home");
+router.get("/home", isLoggedIn, async (req, res, next) => {
+  let user = req.session.currentUser.username;
+  let thisUser = await User.findOne({ user }).populate("folderId");
+
+  res.render("inception/home", { thisUser });
 });
 
 router.get("/create-playlist", (req, res) =>
@@ -31,9 +35,13 @@ router.get("/create-playlist", (req, res) =>
 
 router.post("/create-playlist", async (req, res, next) => {
   let { name, image } = req.body;
-  /* if(image === '')  */
   let user = req.session.currentUser;
-  let folder = await Folder.create({ name, image });
+  let folder;
+  if (image !== "") {
+    folder = await Folder.create({ name, image });
+  } else {
+    folder = await Folder.create({ name });
+  }
   console.log(folder);
   await User.findByIdAndUpdate(
     user._id,
