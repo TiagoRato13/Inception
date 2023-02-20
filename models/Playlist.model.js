@@ -10,6 +10,18 @@ const playlistSchema = new Schema(
       trim: true,
       lowercase: true,
     },
+    song: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Song",
+      },
+    ],
+    folder: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Folder",
+      },
+    ],
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
