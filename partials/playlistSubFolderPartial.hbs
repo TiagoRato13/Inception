@@ -1,10 +1,10 @@
-<a href="/playlist/{{_id}}" id="{{_id}}">
+<a href="/playlist/subplaylist/{{_id}}" id="{{_id}}">
   <div class="card">
     <div>
-      <form action="/playlist/{{_id}}/edit">
+      <form action="/playlist/subplaylist/{{_id}}">
         <button type="submit" class="card-edit">Edit playlist</button>
       </form>
-      <form action="/playlist/{{_id}}/delete" method="post">
+      <form action="/playlist/subplaylist/{{_id}}/delete" method="post">
         <button type="submit" class="card-delete"></button>
       </form>
       <img src="{{image}}" alt="{{name}}" class="image-icon" />

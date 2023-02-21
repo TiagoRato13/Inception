@@ -1,4 +1,4 @@
-<h1>HOME</h1>
+<h1>HOME PLAYLISTS</h1>
 
 <div class="eachCard">
     {{#each currentUser.folderId}}
@@ -7,3 +7,12 @@
 </div>
 <br /><br /><br />
 <a href="/create-playlist"><button>Create a new playlist</button></a>
+<br><br>
+
+<form action="/search" method="get">
+    <label for="name">name: </label>
+    <input type="text" name="artist_name" id="name">
+
+    <button type="submit">Search</button>
+</form>
+{{!-- <a href="/search"><button>Search artist</button></a> --}}

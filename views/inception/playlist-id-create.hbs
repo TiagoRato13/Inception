@@ -1,11 +1,17 @@
 <h1>Create sub-playlist for {{playlistName.name}}</h1>
 
-<form action="/playlist/create-playlist" method="post">
+<form
+  action="/playlist/{{playlistName._id}}/create-playlist"
+  method="post"
+  enctype="multipart/form-data"
+>
   <label for="name">Name:</label>
-  <input type="text" name="name" id="name" />
+  <input type="text" name="name" id="name" required />
 
   <label for="image">Image:</label>
   <input type="file" name="image" id="image" />
+
+  <input type="text" value="{{playlistName._id}}" name="value" hidden />
 
   <button type="submit">Create Playlist</button>
 

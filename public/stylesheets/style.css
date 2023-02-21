@@ -15,7 +15,7 @@ body {
 
 .card {
   background-color: transparent;
-  width: 15vw;
+  min-width: 13vw;
   /*   border: 2px solid white; */
   border-radius: 5px;
   border-top-left-radius: 20%;
@@ -38,23 +38,39 @@ body {
   opacity: 1;
 }
 
+/* CARD CARD-EDIT */
+.card-edit {
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  font-size: 10px;
+  color: white;
+  background-color: transparent;
+  border: none;
+}
+
 /* CARD CARD-DELETE */
 .card-delete {
-  background-image: url("./public/images/delete.svg") !important;
-  width: 10%;
-  height: 7%;
   position: absolute;
+  background-image: url("https://res.cloudinary.com/datglss57/image/upload/v1676980038/inception/delete_jqy2cg.png");
+  background-size: cover;
+  background-position: -6px;
   top: 5px;
   right: 5px;
+  height: 15px;
+  width: 15px;
+  border: none;
+  border-radius: 50%;
 }
 
 /* CARD CARD-IMAGE */
 
 .image-icon {
   border: 1px solid white;
-  width: 80%;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
-  padding: 20px;
+  padding: 5px;
   background-color: white;
   opacity: 0.3;
   transition-duration: 2s;
@@ -144,4 +160,85 @@ body {
   padding: 0 10px;
 }
 
-/*///////////////////// SONG TAB END \\\\\\\\\\\\\\\\\\\\\\\*/
+/*///////////////////// SEARCH BLOCK \\\\\\\\\\\\\\\\\\\\\\\*/
+.search-results {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.search-block {
+  background-color: rgb(143, 143, 143);
+  width: 15vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-image {
+  width: 100%;
+  height: 55%;
+}
+
+.search-card__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 25%;
+}
+
+.search-card__info--title {
+  color: white;
+  margin-top: 10px;
+}
+
+.search-card__info--link {
+  background-color: rgba(255, 0, 0, 0.4);
+  text-decoration: none;
+  position: relative;
+  padding: 10px 0;
+  bottom: 0;
+  color: white;
+  font-weight: bold;
+}
+
+/*///////////////////// ALBUMS \\\\\\\\\\\\\\\\\\\\\\\*/
+.albums {
+  text-align: center;
+}
+
+.albums__cards {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.card__info--title {
+  color: white;
+  padding: 5px;
+}
+
+.albums__cards_each {
+  background-color: rgb(143, 143, 143);
+  width: 15vw;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__info--link {
+  background-color: rgba(255, 0, 0, 0.4);
+  text-decoration: none;
+  position: relative;
+  padding: 10px 0;
+  bottom: 0;
+  color: white;
+  font-weight: bold;
+}
+
+/*            END ALBUMS              */

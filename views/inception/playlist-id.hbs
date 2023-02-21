@@ -1,9 +1,9 @@
-<h1>Playlist: {{folder.name}}</h1>
+<h1>Sub Playlist: {{folder.name}}</h1>
 
 <div class="eachCard">
-  {{!-- {{#each thisUser.folderId}}
-        {{> playlistFolderPartial}}
-    {{/each}} --}}
+  {{#each currentFolder.playlist}}
+      {{> playlistSubFolderPartial}}
+  {{/each}}
 </div>
 <br /><br /><br />
 <a

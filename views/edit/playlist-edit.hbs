@@ -1,0 +1,16 @@
+<h1>edit playlist</h1>
+
+<form
+  action="/playlist/{{playlist._id}}/edit"
+  method="post"
+  enctype="multipart/form-data"
+>
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name" value="{{playlist.name}}" required />
+
+  <label for="image">Image:</label>
+  <input type="file" name="image" id="image" />
+
+  <button type="submit">Update Playlist</button>
+
+</form>

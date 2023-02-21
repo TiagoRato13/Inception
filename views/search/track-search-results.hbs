@@ -1,0 +1,25 @@
+{{!-- <h1>hello</h1>
+<audio controls src="{{tracks.preview_url}}"></audio> --}}
+<section class="nav-tracks">
+  <h1>Title</h1>
+  <h1>Listen</h1>
+</section>
+
+<section class="container__tracks">
+  {{#each tracks}}
+    <section class="track__bar">
+      <h3 class="track__bar--title">{{name}}</h3>
+      <audio
+        controls
+        src="{{preview_url}}"
+        class="track__bar--audio-link"
+      ></audio>
+      {{!-- <a href="{{this.0.uri}}"></a> --}}
+    </section>
+  {{/each}}
+</section>
+
+{{!-- {{#each tracks}}
+<h3>{{this.name}}</h3>
+<audio controls src="{{this.preview_url}}"></audio>
+{{/each}} --}}

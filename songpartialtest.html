@@ -8,7 +8,15 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="song-tab">
+
+    <form action="/playlist/{{_id}}/delete" method="post">
+      <button type="submit" class="card-delete"></button>
+    </form>
+    <img src="{{image}}" alt="{{name}}" class="image-icon" />
+  </div>
+  <br />
+  <h3 class="card-title">{{name}}</h3>
+    <!-- <div class="song-tab">
       <img src="../public/images/delete.svg" alt="" class="card-delete" />
       <img src="" alt="artist-image" class="song-tab-artist-image" />
       <h4 class="song-tab-artist">Artist Here</h4>
@@ -56,6 +64,6 @@
         class="song-tab-repeat-self"
       />
       <audio controls src="" class="song-tab-audio"></audio>
-    </div>
+    </div> -->
   </body>
 </html>
