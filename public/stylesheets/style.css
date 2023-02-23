@@ -417,12 +417,13 @@ form > input {
 /*///////////////////// SEARCH BLOCK \\\\\\\\\\\\\\\\\\\\\\\*/
 .search-block {
   width: 95vw;
-  margin: auto;
+  margin: 50px auto;
 }
 
 .search-block-results {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 50px;
   margin-top: 50px;
 }
