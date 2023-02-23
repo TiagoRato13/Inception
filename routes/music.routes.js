@@ -3,10 +3,11 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const User = require("../models/User.model");
 const Folder = require("../models/Folder.model");
-const Playlist = require("../models/Playlist.model");
+/* const Playlist = require("../models/Playlist.model"); */
 const fileUploader = require("../config/cloudinary.config");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
+const axios = require("axios");
 
 // require spotify-web-api-node package here:
 const SpotifyWebApi = require("spotify-web-api-node");
@@ -72,16 +73,40 @@ router.get("/albums/:artistId", (req, res, next) => {
 
 /* GET TRACKS */
 
-router.get("/view-tracks/:trackId", (req, res, next) => {
+router.get("/view-tracks/:trackId", async (req, res, next) => {
+  let myUser = await User.findById(req.session.currentUser._id).populate(
+    "folderId"
+  );
+
+  let userFolders = myUser.folderId;
+
+  console.log(myUser);
   spotifyApi
     .getAlbumTracks(req.params.trackId)
     .then((data) => {
       const tracks = data.body.items;
-      console.log(data);
-      res.render("search/track-search-results", { tracks });
+      /* console.log(data); */
+      res.render("search/track-search-results", { tracks, userFolders });
       /* res.send(tracks[0]); */
     })
     .catch((error) => console.log("Something went wrong!", error));
+});
+
+/* ADD SONG */
+router.post("/addSong", async (req, res, next) => {
+  const { preview, folder, name } = req.body;
+  try {
+    console.log(folder);
+
+    await Folder.findByIdAndUpdate(
+      folder,
+      { $push: { song: preview } },
+      { new: true }
+    );
+    res.redirect("home");
+  } catch (error) {
+    console.log(error), next(error);
+  }
 });
 
 /* --- CREATE PLAYLIST --- */
@@ -103,7 +128,7 @@ router.post(
       } else {
         folder = await Folder.create({ name });
       }
-      console.log(folder);
+
       await User.findByIdAndUpdate(
         user._id,
         { $push: { folderId: folder } },
@@ -115,6 +140,57 @@ router.post(
     }
   }
 );
+
+/* --- CREATE SPOTIFY PLAYLIST --- */
+
+/* router.get("/playlist/:id/create-playlist", async (req, res) => {
+  const id = req.params.id;
+  const playlistName = await Folder.findById(id);
+  res.render("inception/playlist-id-create", { playlistName });
+});
+
+router.post(
+  "/playlist/:id/create-playlist",
+  //fileUploader.single("image"),
+  async (req, res, next) => {
+    try {
+      let { name, description } = req.body;
+      let user = req.session.currentUser;
+      /* let folder;
+      if (req.file) {
+        folder = await Folder.create({ name, image: req.file.path });
+      } else {
+        folder = await Folder.create({ name });
+      }
+      console.log(folder); 
+      let spotifyPlaylist = await axios({
+        method: "post",
+        url: `https://api.spotify.com/v1/users/${req.session.myProfile.id}/playlists`,
+        data: {
+          name,
+          description,
+          public: true,
+        },
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${req.app.locals.accessToken}`,
+        },
+      });
+
+      // Playlist.create({name, description, image, spotifyId: spotifyApi.data.id })
+      console.log(spotifyPlaylist.data);
+
+      /* await User.findByIdAndUpdate(
+        user._id,
+        { $push: { folderId: folder } },
+        { new: true }
+      ); 
+      res.redirect("/home");
+    } catch (error) {
+      console.log(error), next(error);
+    }
+  }
+); */
 
 /* ---EDIT PLAYLIST --- */
 router.get("/playlist/:id/edit", async (req, res, next) => {
@@ -160,7 +236,49 @@ router.post(
   }
 );
 
-/* ---PLAYLIST ID - CREATE SUBFOLDER --- */
+/* /* ---EDIT PLAYLIST SUBFOLDER --- 
+router.get("/playlist/subplaylist/:id/edit", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    /* console.log(id); 
+    const playlist = await Playlist.findById(id);
+
+    res.render("edit/playlist-subfolder-edit", { playlist });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+});
+
+router.post(
+  "/playlist/subplaylist/:id/edit",
+  fileUploader.single("image"),
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+
+      console.log(`THIS IS THE ${id}`);
+      let folder = await Folder.findById(id);
+      /* console.log(folder); 
+      let { name, image } = req.body;
+
+      if (req.file) {
+        folder = await Playlist.findByIdAndUpdate(id, {
+          name,
+          image: req.file.path,
+        });
+      } else {
+        folder = await Playlist.findByIdAndUpdate(id, { name });
+      }
+
+      res.render(`playlist/${id}`, { folder });
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  }
+); */
+/* /* ---PLAYLIST ID - CREATE SUBFOLDER --- 
 router.get("/playlist/:id/create-playlist", async (req, res) => {
   const id = req.params.id;
   const playlistName = await Folder.findById(id);
@@ -182,7 +300,7 @@ router.post(
       playlist = await Playlist.create({ name });
     }
     console.log(id);
-    /* console.log(value); */
+    /* console.log(value); 
     await Folder.findByIdAndUpdate(
       id,
       { $push: { playlist: playlist } },
@@ -195,22 +313,23 @@ router.post(
       console.log(error), next(error);
     }
   }
-);
+); */
 
 /* --- PLAYLIST ID FOLDER--- */
 
 router.get("/playlist/:id", isLoggedIn, async (req, res, next) => {
   try {
     const { id } = req.params;
-    const currentFolder = await Folder.findById(id).populate("playlist");
     const folder = await Folder.findById(id);
-    res.render("inception/playlist-id", { folder, currentFolder });
+
+    res.render("inception/playlist-id", { folder });
+    console.log(folder);
   } catch (error) {
     console.log(error), next(error);
   }
 });
 
-/* --- SUB PLAYLIST ID FOLDER--- */
+/* /* --- SUB PLAYLIST ID FOLDER--- 
 
 router.get("/playlist/subplaylist/:id", isLoggedIn, async (req, res, next) => {
   try {
@@ -222,7 +341,7 @@ router.get("/playlist/subplaylist/:id", isLoggedIn, async (req, res, next) => {
   } catch (error) {
     console.log(error), next(error);
   }
-});
+}); */
 
 //Delete a playlist
 router.post("/playlist/:id/delete", async (req, res, next) => {
@@ -243,7 +362,7 @@ router.post("/playlist/:id/delete", async (req, res, next) => {
 });
 
 //Delete a subplaylist
-router.post("/playlist/subplaylist/:id/delete", async (req, res, next) => {
+/* router.post("/playlist/subplaylist/:id/delete", async (req, res, next) => {
   try {
     const { id } = req.params;
     const currentFolder = await Folder.findByIdAndUpdate(id, {
@@ -257,6 +376,6 @@ router.post("/playlist/subplaylist/:id/delete", async (req, res, next) => {
     console.log(error);
     next(error);
   }
-});
+}); */
 
 module.exports = router;

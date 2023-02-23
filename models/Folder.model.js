@@ -8,18 +8,10 @@ const folderSchema = new Schema(
       required: false,
       unique: false,
       trim: true,
-      lowercase: true,
     },
-    playlist: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Playlist",
-      },
-    ],
     song: [
       {
-        type: Schema.Types.ObjectId,
-        ref: "Song",
+        type: String,
       },
     ],
     image: {

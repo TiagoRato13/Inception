@@ -1,12 +1,19 @@
-<h1>Sub Playlist: {{folder.name}}</h1>
+<section class="folder-page">
+  <div class="folder-page-header">
+    <h1 id="folder-page-title">Playlist:
+      <span style="color:rgb(13, 77, 112)">{{folder.name}}</span>
+    </h1>
 
-<div class="eachCard">
-  {{#each currentFolder.playlist}}
-      {{> playlistSubFolderPartial}}
-  {{/each}}
-</div>
-<br /><br /><br />
-<a
-  href="/playlist/{{folder._id}}/create-playlist"
-  {{!-- id="{{_id}}" --}}
-><button>Create a sub playlist</button></a>
+    {{!-- <a href="/playlist/{{currentFolder._id}}/create-playlist"><button class="folder-page-create-button">Create a spotify playlist</button></a> --}}
+  </div>
+  <div class="eachSong">
+    {{#each folder.song}}
+      <h3>{{this}}</h3>
+      <audio controls src="{{this}}" class="track__bar--audio-link"></audio>
+      <br />
+    {{/each}}
+  </div>
+
+  <br /><br />
+  <a href="/home" class="goback-home-button">Go back</a>
+</section>

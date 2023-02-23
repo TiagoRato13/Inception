@@ -45,6 +45,9 @@ app.use("/auth", authRoutes);
 const inceptionRoutes = require("./routes/music.routes");
 app.use("/", inceptionRoutes);
 
+const spotifyAuthRoutes = require("./routes/spotify-auth.routes");
+app.use("/", spotifyAuthRoutes);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 

@@ -1,12 +1,20 @@
-<h1>Create playlist</h1>
+<section class="container__tracks">
+  <h1>Create playlist</h1>
 
-<form action="/create-playlist" method="post" enctype="multipart/form-data">
-  <label for="name">Name:</label>
-  <input type="text" name="name" id="name" required />
+  {{myProfile.display_name}}
+  <img src="{{myProfile.images.0.url}}" alt="" />
 
-  <label for="image">Image:</label>
-  <input type="file" name="image" id="image" />
+  <form action="/create-playlist" method="post" enctype="multipart/form-data">
+    <label for="name">Name:</label>
+    <input type="text" name="name" id="name" required />
 
-  <button type="submit">Create Playlist</button>
+    <label for="image">Image:</label>
+    <input type="file" name="image" id="image" />
 
-</form>
+    <button type="submit">Create Playlist</button>
+
+  </form>
+
+  <br /><br />
+  <a href="/home" class="goback-home-button">Go back</a>
+</section>

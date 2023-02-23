@@ -7,7 +7,6 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: false,
-      lowercase: true,
       trim: true,
     },
     email: {
@@ -24,14 +23,16 @@ const userSchema = new Schema(
       unique: false,
       trim: true,
     },
-    administrator: {
-      type: String,
-      default: false,
-    },
     folderId: [
       {
         type: Schema.Types.ObjectId,
         ref: "Folder",
+      },
+    ],
+    song: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Song",
       },
     ],
   },

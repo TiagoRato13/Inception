@@ -1,4 +1,4 @@
-<section class="albums">
+<section class="container__tracks">
   <h1>Albums for: {{artist.0.artists.0.name}}</h1>
   <div class="albums__cards">
     {{#each artist}}
@@ -19,7 +19,10 @@
     {{/each}}
 
   </div>
-</section>
+  <br /><br />
+  <a
+    href="/search?artist_name={{artist.0.artists.0.name}}"
+    class="goback-home-button"
+  >HOME</a>
 
-<br />
-<a href="/albums/{{this.id}}"><button>Go back</button></a>
+</section>

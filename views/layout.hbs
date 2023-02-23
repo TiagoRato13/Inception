@@ -16,23 +16,69 @@
 
   <body>
 
-    <nav>
-      <ul class="nav nav-pills justify-content-end gap-4">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/auth/login">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/auth/signup">Create new
-            account</a>
-        </li>
+    <nav class="navbar navbar-expand-lg navbar-light text-dark bg-semi-light">
+      <div class="container-fluid" style="height: 45px">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            {{! <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li> }}
+            {{#unless userInSession}}
+              <a class="navbar-brand mx-auto navbar-title" href="/">Precoce</a>
+            {{/unless}}
+            {{#if userInSession}}
+              <a
+                class="navbar-brand mx-auto navbar-title"
+                href="/home"
+              >Precoce</a>
+            {{/if}}
 
-        <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/auth/logout">Logout</a>
-        </li>
-      </ul>
+            {{#unless userInSession}}
+              <li class="nav-item">
+                <a class="nav-link" href="/auth/login">Log In</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/auth/signup">Sign Up</a>
+              </li>
+            {{/unless}}
+            {{#if userInSession}}
+              <li class="nav-item nav-logout">
+                <a class="nav-link" href="/auth/logout">Log Out</a>
+              </li>
+            {{/if}}
+            {{! <li class="nav-item nav-logout">
+              <a class="nav-link" href="/create/login">Log to spotify</a>
+            </li> }}
+            {{! <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Playlists
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Playlist 1</a></li>
+                <li><a class="dropdown-item" href="#">Playlist 2</a></li>
+                <li><a class="dropdown-item" href="#">Playlist 3</a></li>
+              </ul>
+            </li> }}
+          </ul>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+          </button>
+        </div>
+      </div>
     </nav>
 
     {{{body}}}
