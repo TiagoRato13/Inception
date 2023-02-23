@@ -129,8 +129,16 @@ router.post("/login", isLoggedOut, (req, res, next) => {
             return;
           }
 
+          /* function toggleLogout() {
+            var logout = document.getElementById("nav-logout");
+            logout.classList.toggle("hidden");
+          }
+
+          toggleLogout(); */
+
           // Add the user object to the session object
           req.session.currentUser = user.toObject();
+          req.app.locals.userInSession = true;
           // Remove the password field
           delete req.session.currentUser.password;
 
@@ -143,6 +151,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 
 // GET /auth/logout
 router.get("/logout", isLoggedIn, (req, res) => {
+  req.app.locals.userInSession = false;
   req.session.destroy((err) => {
     if (err) {
       res.status(500).render("auth/logout", { errorMessage: err.message });

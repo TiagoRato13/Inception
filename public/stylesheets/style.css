@@ -1,13 +1,232 @@
+#nav-top nav {
+  padding: 0.5rem 2rem;
+  padding-top: 0.5rem;
+  padding-right: 2rem;
+  padding-bottom: 0.5rem;
+  padding-left: 2rem;
+  transition: background 0.3s ease-in, color 0.3s ease-in;
+  transition-duration: 0.3s, 0.3s;
+  transition-timing-function: ease-in, ease-in;
+  transition-delay: 0s, 0s;
+  transition-property: background, color;
+}
+
+.bg-semi-light {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+.text-dark {
+  color: #343a40 !important;
+}
+
 body {
   margin: 0;
   padding: 0;
-  background-color: black;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url(https://res.cloudinary.com/datglss57/image/upload/v1677003049/inception/image_myqq87.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
+/*//////////////////////// NAV-BAR \\\\\\\\\\\\\\\\\\\\\\\\\*/
+.navbar-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+#nav-top nav {
+  padding: 0.5rem 2rem;
+  padding-top: 0.5rem;
+  padding-right: 2rem;
+  padding-bottom: 0.5rem;
+  padding-left: 2rem;
+  transition: background 0.3s ease-in, color 0.3s ease-in;
+  transition-duration: 0.3s, 0.3s;
+  transition-timing-function: ease-in, ease-in;
+  transition-delay: 0s, 0s;
+  transition-property: background, color;
+}
+
+.navbar-title {
+  font-size: 24px;
+  width: 90vw;
+}
+
+.bg-semi-light {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+.text-dark {
+  color: #343a40 !important;
+}
+/*////////////////////// NAV-BAR END \\\\\\\\\\\\\\\\\\\\\\\\*/
+/*///////////////////// LOGIN / SIGNUP \\\\\\\\\\\\\\\\\\\\\*/
+
+#login-form,
+#signup-form {
+  margin: 20vh auto;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-color: white;
+  width: 30vw;
+  padding: 40px 40px 20px 70px;
+  border-image: linear-gradient(purple, #068348) 30;
+  border-width: 4px;
+  border-style: solid;
+  box-shadow: 0 0 60px 10px black;
+}
+
+#login-button,
+#signup-button {
+  text-align: right;
+}
+
+#login-button button,
+#signup-button button {
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+form > label {
+  width: 80px;
+}
+
+form > input {
+  border: none;
+}
+
+/*/////////////////// LOGIN / SIGNUP END \\\\\\\\\\\\\\\\\\\*/
+/*//////////////////////// HOME \\\\\\\\\\\\\\\\\\\\\\\\\*/
+.home-page,
+.folder-page {
+  margin: 30px 20px;
+}
+
+.home-page-header,
+.folder-page-header {
+  display: flex;
+}
+
+#home-page-title,
+#folder-page-title {
+  color: rgb(34, 34, 34);
+  text-decoration: underline purple;
+  width: 40vw;
+}
+
+.home-page-header > a,
+.folder-page-header > a {
+  margin-left: 50px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  transition-duration: 0.5s;
+}
+/* 
+.home-page-header > a:hover,
+.folder-page-header > a:hover {
+  border: 1px solid white;
+  box-shadow: 2px 2px 10px 3px purple;
+  transition-duration: 0.5s;
+} */
+
+.search-artist-bar {
+  position: absolute;
+  right: 30vw;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.search-artist-bar:hover {
+  border: 1px solid white;
+  box-shadow: 2px 2px 10px 3px purple;
+  transition-duration: 0.5s;
+}
+
+.search-artist-bar > input {
+  background-color: transparent;
+  border: 3px solid purple;
+  border-radius: 5px;
+  padding: 5px;
+  color: white;
+}
+
+.search-artist-bar > button {
+  background-color: transparent;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+  border: none;
+  transition-duration: 0.5s;
+}
+
+.search-artist-bar:hover > button {
+  background-color: purple;
+  border-radius: 5px;
+  padding: 5px;
+  border: none;
+  transition-duration: 0.5s;
+}
+
+.home-page-create-button,
+.folder-page-create-button {
+  position: absolute;
+  right: 5vw;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.home-page-create-button:hover {
+  border: 1px solid white;
+  box-shadow: 2px 2px 10px 3px purple;
+  transition-duration: 0.5s;
+}
+
+.goback-home-button {
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition-duration: 1s;
+}
+
+.goback-home-button:hover {
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #068348;
+  box-shadow: 2px 2px 10px 3px #068348;
+  transition-duration: 0.5s;
+}
+
+/*////////////////////// HOME END \\\\\\\\\\\\\\\\\\\\\\*/
 /*//////////////////////// CARD \\\\\\\\\\\\\\\\\\\\\\\\\*/
+
+.eachCard {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.eachCard a {
+  text-decoration: none;
+}
+
 .card {
   background-color: transparent;
-  width: 30vw;
+  max-width: 15vw;
+  height: 330px;
   /*   border: 2px solid white; */
   border-radius: 5px;
   border-top-left-radius: 20%;
@@ -20,19 +239,61 @@ body {
 }
 
 .card:hover {
-  opacity: 1;
-  transition-duration: 1s;
+  opacity: 0.7;
+  transition-duration: 0.5s;
+  opacity: 0.7;
+  transition-duration: 0.5s;
   background-color: rgb(19, 43, 56);
   color: rgba(255, 255, 255, 0.3);
+}
+
+.card:active {
+  opacity: 1;
+}
+
+/* CARD CARD-EDIT */
+.card-edit {
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  font-size: 10px;
+  color: transparent;
+  background-color: transparent;
+  border: none;
+  transition-duration: 2s;
+}
+
+.card:hover .card-edit {
+  transition-duration: 1s;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* CARD CARD-DELETE */
+.card-delete {
+  position: absolute;
+  background-image: url("https://res.cloudinary.com/datglss57/image/upload/v1676980038/inception/delete_jqy2cg.png");
+  background-size: cover;
+  background-position: -6px;
+  top: 5px;
+  right: 5px;
+  height: 15px;
+  width: 15px;
+  border: none;
+  border-radius: 50%;
+  display: none;
+}
+.card:hover .card-delete {
+  display: block;
 }
 
 /* CARD CARD-IMAGE */
 
 .image-icon {
-  border: 3px solid white;
-  width: 80%;
+  border: 1px solid white;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
-  padding: 20px;
+  padding: 5px;
   background-color: white;
   opacity: 0.3;
   transition-duration: 2s;
@@ -122,4 +383,144 @@ body {
   padding: 0 10px;
 }
 
-/*///////////////////// SONG TAB END \\\\\\\\\\\\\\\\\\\\\\\*/
+/*///////////////////// SEARCH BLOCK \\\\\\\\\\\\\\\\\\\\\\\*/
+.search-results {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.search-block {
+  background-color: rgb(143, 143, 143);
+  width: 15vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-image {
+  width: 100%;
+  height: 55%;
+}
+
+.search-card__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 25%;
+}
+
+.search-card__info--title {
+  color: white;
+  margin-top: 10px;
+}
+
+.search-card__info--link {
+  background-color: rgba(255, 0, 0, 0.4);
+  text-decoration: none;
+  position: relative;
+  padding: 10px 0;
+  bottom: 0;
+  color: white;
+  font-weight: bold;
+}
+
+/*///////////////////// ALBUMS \\\\\\\\\\\\\\\\\\\\\\\*/
+.albums {
+  text-align: center;
+}
+
+.albums__cards {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.card__info--title {
+  color: white;
+  padding: 5px;
+}
+
+.albums__cards_each {
+  background-color: rgb(143, 143, 143);
+  width: 15vw;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__info--link {
+  background-color: rgba(255, 0, 0, 0.4);
+  text-decoration: none;
+  position: relative;
+  padding: 10px 0;
+  bottom: 0;
+  color: white;
+  font-weight: bold;
+}
+
+/*            END ALBUMS              */
+
+/*/////////////////// TRACKS \\\\\\\\\\\\\\\\\\\*/
+
+.container__tracks {
+  width: 95vw;
+  margin: 30px auto 50px auto;
+}
+
+.track__bar {
+  display: flex;
+  justify-content: flex-start;
+  height: 7vh;
+  margin: 10px 0;
+  padding: 10px 30px;
+  align-items: center;
+  transition-duration: 0.5s;
+  border-radius: 5px;
+}
+
+.track__bar:hover {
+  background-color: #068348;
+  transition-duration: 0.5s;
+  box-shadow: 2px 2px 20px 5px black;
+}
+
+.track__bar--title {
+  width: 45vw;
+  color: white;
+  font-size: 14px;
+  margin: 0;
+}
+
+.folder-select {
+  padding: 5px;
+  background-color: rgb(33, 33, 33, 0.5);
+  font-weight: bold;
+  color: #068348;
+  border: transparent;
+}
+
+.folder-select:hover {
+  color: white;
+}
+
+.add-song {
+  margin: 0 0 0 70px;
+  font-size: 12px;
+}
+
+.add-song > button {
+  border: transparent;
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+/*///////////////// END TRACKS \\\\\\\\\\\\\\\\\\*/

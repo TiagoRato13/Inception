@@ -1,7 +1,32 @@
-<h1>HOME</h1>
+<section class="home-page">
+    <div class="home-page-header">
+        <h1 id="home-page-title">Incomming festivals for: <span style="color:white">{{currentUser.username}}</span> </h1>
+        <form action="/search" method="get" class="search-artist-bar">
+            <input
+                type="text"
+                name="artist_name"
+                id="artist_name"
+                placeholder="Insert artist name"
+                required
+            />
 
-{{#each thisUser.folderId}}
-    {{> playlistFolderPartial}}
-{{/each}}
-<br /><br /><br />
-<a href="/create-playlist"><button>Create playlist</button></a>
+            <button type="submit">Search artist</button>
+        </form>
+        <a href="/create-playlist"><button class="home-page-create-button">Add new festival</button></a>
+    
+    </div>
+    <div class="eachCard">
+        {{#each currentUser.folderId}}
+            {{> playlistFolderPartial}}
+        {{/each}}
+    </div>
+   {{!--  <br /><br /><br />
+ 
+    <form action="/search" method="get">
+        <label for="name">name: </label>
+        <input type="text" name="artist_name" id="name">
+
+        <button type="submit">Search</button>
+    </form> --}}
+{{!-- <a href="/search"><button>Search artist</button></a> --}}
+</section>

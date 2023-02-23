@@ -5,27 +5,24 @@ const folderSchema = new Schema(
   {
     name: {
       type: String,
-      required: true,
-      unique: true,
+      required: false,
+      unique: false,
       trim: true,
-      lowercase: true,
     },
-    playlist: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: "Playlist",
-      },
-    ],
     song: [
       {
-        type: Schema.Types.ObjectId,
-        ref: "Song",
+        type: String,
       },
     ],
     image: {
       type: String,
       default:
         "https://res.cloudinary.com/dkdf4rhxp/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1660229420/ironhub-project/yiisznvaxj6tzw9d0zmg.jpg",
+    },
+    deletebutton: {
+      type: String,
+      default:
+        "https://res.cloudinary.com/datglss57/image/upload/v1676978195/inception/delete_yfkvpt.png",
     },
   },
   {
