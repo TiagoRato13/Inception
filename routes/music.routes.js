@@ -85,7 +85,7 @@ router.get("/view-tracks/:trackId", async (req, res, next) => {
     .getAlbumTracks(req.params.trackId)
     .then((data) => {
       const tracks = data.body.items;
-      /* console.log(data); */
+      /*  console.log(data.body.items[0].artists); */
       res.render("search/track-search-results", { tracks, userFolders });
       /* res.send(tracks[0]); */
     })
@@ -94,16 +94,22 @@ router.get("/view-tracks/:trackId", async (req, res, next) => {
 
 /* ADD SONG */
 router.post("/addSong", async (req, res, next) => {
-  const { preview, folder, name } = req.body;
+  const { preview, folder, artist, track } = req.body;
   try {
-    console.log(folder);
+    /*  console.log(preview, artist, track); */
+    const thisSong = { artist: artist, url: preview, track: track };
+    const thisFolder = await Folder.findById(folder);
+    console.log(thisFolder);
+    const update = [...thisFolder.song, thisSong];
 
     await Folder.findByIdAndUpdate(
       folder,
-      { $push: { song: preview } },
+      /*  { $push: { song: preview } }, */
+      { song: update },
       { new: true }
     );
-    res.redirect("home");
+    res.redirect("/home");
+    /* res.send(folder); */
   } catch (error) {
     console.log(error), next(error);
   }

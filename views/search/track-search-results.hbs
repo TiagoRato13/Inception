@@ -12,14 +12,15 @@
         class="track__bar--audio-link"
       ></audio>
       <form action="/addSong" method="post" class="add-song">
+        <input type="text" name="preview" value="{{preview_url}}" hidden />
+        <input type="text" name="artist" value="{{artists.0.name}}" hidden />
+         <input type="text" name="track" value="{{name}}" hidden />
       <label for="folder" style="font-weight:bold">Select folder</label>
         <select name="folder" class="folder-select">
           {{#each ../userFolders}}
             <option value="{{this._id}}">{{this.name}}</option>
           {{/each}}
         </select>
-        <input type="text" name="preview" value="{{preview_url}}" hidden />
-        <input type="text" name="name" value="{{name}}" hidden />
         <button type="submit">Add song to list</button>
       </form>
     </section>
