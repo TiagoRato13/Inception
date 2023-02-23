@@ -11,7 +11,9 @@ const folderSchema = new Schema(
     },
     song: [
       {
-        type: String,
+        artist: String,
+        url: String,
+        track: String,
       },
     ],
     image: {

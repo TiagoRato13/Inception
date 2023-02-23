@@ -1,21 +1,18 @@
-<section class="container__tracks">
+<section class="search-block">
 
-  <div class="search-results">
+  <div class="search-block-results">
     {{#each items}}
-      <div class="search-block">
+      <div class="search-block-cards">
         <img
           src="{{this.images.0.url}}"
           alt="{{this.name}}"
-          class="search-image"
+          class="search-block-image"
         />
 
-        <div class="search-card__info">
-          <h3 class="search-card__info--title">
-            {{this.name}}
-          </h3>
+        <div class="search-block-info">
+          <h3 class="search-block-info-title"> {{this.name}} </h3>
         </div>
-        <a href="/albums/{{this.id}}" class="search-card__info--link">View
-          Albums</a>
+        <a href="/albums/{{this.id}}" class="search-block-info-link">View Albums</a>
       </div>
     {{/each}}
   </div>

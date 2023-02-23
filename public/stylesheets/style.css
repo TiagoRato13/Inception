@@ -1,3 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  background-image: url(https://res.cloudinary.com/datglss57/image/upload/v1677155153/inception/image_soqxua.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 #nav-top nav {
   padding: 0.5rem 2rem;
   padding-top: 0.5rem;
@@ -18,16 +29,16 @@
   color: #343a40 !important;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url(https://res.cloudinary.com/datglss57/image/upload/v1677003049/inception/image_myqq87.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
+/*//////////////////////// NAV-BAR \\\\\\\\\\\\\\\\\\\\\\\\\*/
+nav {
+  background-color: rgba(34, 134, 222, 0.5) !important;
 }
 
-/*//////////////////////// NAV-BAR \\\\\\\\\\\\\\\\\\\\\\\\\*/
+.navbar-title,
+.navbar-logs {
+  color: white;
+}
+
 .navbar-nav {
   display: flex;
   justify-content: space-between;
@@ -52,7 +63,7 @@ body {
 }
 
 .bg-semi-light {
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 .text-dark {
   color: #343a40 !important;
@@ -63,12 +74,10 @@ body {
 #login-form,
 #signup-form {
   margin: 20vh auto;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   background-color: white;
   width: 30vw;
   padding: 40px 40px 20px 70px;
-  border-image: linear-gradient(purple, #068348) 30;
+  border-image: linear-gradient(rgb(94, 57, 205), #075075) 30;
   border-width: 4px;
   border-style: solid;
   box-shadow: 0 0 60px 10px black;
@@ -109,9 +118,8 @@ form > input {
 
 #home-page-title,
 #folder-page-title {
-  color: rgb(34, 34, 34);
-  text-decoration: underline purple;
-  width: 40vw;
+  color: white;
+  border-bottom: 1px solid white;
 }
 
 .home-page-header > a,
@@ -121,13 +129,6 @@ form > input {
   border-radius: 5px;
   transition-duration: 0.5s;
 }
-/* 
-.home-page-header > a:hover,
-.folder-page-header > a:hover {
-  border: 1px solid white;
-  box-shadow: 2px 2px 10px 3px purple;
-  transition-duration: 0.5s;
-} */
 
 .search-artist-bar {
   position: absolute;
@@ -138,17 +139,17 @@ form > input {
   color: white;
   font-size: 16px;
   padding: 10px;
+  min-width: 30px;
 }
 
 .search-artist-bar:hover {
   border: 1px solid white;
-  box-shadow: 2px 2px 10px 3px purple;
+  box-shadow: 2px 2px 10px 3px orange;
   transition-duration: 0.5s;
 }
 
 .search-artist-bar > input {
   background-color: transparent;
-  border: 3px solid purple;
   border-radius: 5px;
   padding: 5px;
   color: white;
@@ -164,7 +165,7 @@ form > input {
 }
 
 .search-artist-bar:hover > button {
-  background-color: purple;
+  background-color: orange;
   border-radius: 5px;
   padding: 5px;
   border: none;
@@ -185,7 +186,7 @@ form > input {
 
 .home-page-create-button:hover {
   border: 1px solid white;
-  box-shadow: 2px 2px 10px 3px purple;
+  box-shadow: 2px 2px 10px 3px orange;
   transition-duration: 0.5s;
 }
 
@@ -203,19 +204,33 @@ form > input {
 .goback-home-button:hover {
   border: 1px solid white;
   border-radius: 5px;
-  background-color: #068348;
-  box-shadow: 2px 2px 10px 3px #068348;
+  background-color: orange;
+  box-shadow: 2px 2px 10px 3px orange;
   transition-duration: 0.5s;
 }
 
 /*////////////////////// HOME END \\\\\\\\\\\\\\\\\\\\\\*/
-/*//////////////////////// CARD \\\\\\\\\\\\\\\\\\\\\\\\\*/
+/*////////////////////// CREATE PLAYLIST \\\\\\\\\\\\\\\\\\\\\\*/
+
+.song-block {
+  margin: 20vh auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 30vw;
+  padding: 20px;
+  border-image: linear-gradient(rgb(94, 57, 205), #075075) 30;
+  border-width: 4px;
+  border-style: solid;
+  box-shadow: 0 0 60px 10px black;
+  color: white;
+}
+
+/*////////////////////// CREATE PLAYLIST END \\\\\\\\\\\\\\\\\\\\\\*/
 
 .eachCard {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 40px;
   margin-top: 30px;
 }
 
@@ -225,9 +240,10 @@ form > input {
 
 .card {
   background-color: transparent;
-  max-width: 15vw;
+  width: 15vw;
   height: 330px;
-  /*   border: 2px solid white; */
+  border: none;
+  box-shadow: 0px 5px 5px 2px black;
   border-radius: 5px;
   border-top-left-radius: 20%;
   border-bottom-right-radius: 20%;
@@ -243,8 +259,9 @@ form > input {
   transition-duration: 0.5s;
   opacity: 0.7;
   transition-duration: 0.5s;
-  background-color: rgb(19, 43, 56);
+  background-color: rgba(0, 0, 0, 0.9);
   color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 5px 5px 2px orange;
 }
 
 .card:active {
@@ -301,11 +318,15 @@ form > input {
 
 .card:hover .image-icon {
   transition-duration: 1s;
+  background-color: orange;
+  border: 1px solid orange;
   opacity: 1;
 }
 
 /* CARD CARD-TITLE */
 .card-title {
+  font-size: 28px;
+  padding-top: 10px;
   margin: 0;
 }
 
@@ -384,48 +405,79 @@ form > input {
 }
 
 /*///////////////////// SEARCH BLOCK \\\\\\\\\\\\\\\\\\\\\\\*/
-.search-results {
-  margin-top: 50px;
+.search-block {
+  width: 95vw;
+  margin: auto;
+}
+
+.search-block-results {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
+  gap: 50px;
+  margin-top: 50px;
 }
 
-.search-block {
-  background-color: rgb(143, 143, 143);
+.search-block-cards {
+  background-color: transparent;
   width: 15vw;
-  height: 50vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.search-image {
-  width: 100%;
-  height: 55%;
-}
-
-.search-card__info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 330px;
+  border: none;
+  box-shadow: 0px 5px 5px 2px black;
+  border-radius: 5px;
+  border-top-left-radius: 20%;
+  border-bottom-right-radius: 20%;
   text-align: center;
-  height: 25%;
+  padding: 20px 5px 70px 5px;
+  transition-duration: 2s;
+  padding: 20px 0 80px 0;
 }
 
-.search-card__info--title {
+.search-block-cards:hover {
+  transition-duration: 0.5s;
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0px 5px 5px 2px orange;
+}
+
+.search-block-cards:hover .search-block-image {
+  transition-duration: 1s;
+  background-color: orange;
+  border: 1px solid orange;
+  opacity: 0.7;
+}
+
+.search-block-image {
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  border: 1px solid white;
+  padding: 5px;
+  background-color: white;
+}
+
+.search-block-info {
+  margin-top: 30px;
+  height: 35%;
+}
+
+.search-block-info-title {
+  color: rgba(255, 255, 255, 0.3);
+  margin: 10px;
+  font-size: 20px;
+}
+
+.search-block-info-title:hover {
   color: white;
-  margin-top: 10px;
 }
 
-.search-card__info--link {
-  background-color: rgba(255, 0, 0, 0.4);
+.search-block-info-link {
   text-decoration: none;
-  position: relative;
-  padding: 10px 0;
-  bottom: 0;
-  color: white;
+  padding: 0;
+  color: rgba(255, 255, 255, 0.3);
   font-weight: bold;
+}
+
+.search-block-cards:hover .search-block-info-link {
+  color: white;
 }
 
 /*///////////////////// ALBUMS \\\\\\\\\\\\\\\\\\\\\\\*/
@@ -469,8 +521,49 @@ form > input {
 /*/////////////////// TRACKS \\\\\\\\\\\\\\\\\\\*/
 
 .container__tracks {
-  width: 95vw;
-  margin: 30px auto 50px auto;
+  margin: 20vh auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  width: 30vw;
+  padding: 40px 40px 20px 70px;
+  border-image: linear-gradient(rgb(94, 57, 205), #075075) 30;
+  border-width: 4px;
+  border-style: solid;
+  box-shadow: 0 0 60px 10px black;
+}
+
+.create-name {
+  background-color: transparent;
+  padding: 5px;
+  color: white;
+  border-bottom: 1px solid orange;
+}
+
+.create-name:focus {
+  border: 1px solid orange;
+  border-radius: 3px;
+  outline: none;
+}
+
+.create-button {
+  text-align: right;
+}
+
+.create-button > button {
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: white;
+  transition-duration: 0.5s;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.create-button > button:hover {
+  background-color: orange;
+  color: white;
+  transition-duration: 0.5s;
+  border: 1px solid white;
+  box-shadow: 2px 2px 10px 3px orange;
 }
 
 .track__bar {
