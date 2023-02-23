@@ -85,7 +85,6 @@ router.get("/view-tracks/:trackId", async (req, res, next) => {
     .getAlbumTracks(req.params.trackId)
     .then((data) => {
       const tracks = data.body.items;
-      /*  console.log(data.body.items[0].artists); */
       res.render("search/track-search-results", { tracks, userFolders });
       /* res.send(tracks[0]); */
     })

@@ -41,7 +41,7 @@ nav {
 
 .navbar-title:hover,
 .navbar-logs:hover {
-  color: rgba(34, 134, 222, 0.8);
+  color: black;
 }
 
 .navbar-nav {
@@ -65,6 +65,22 @@ nav {
 .navbar-title {
   font-size: 24px;
   width: 90vw;
+}
+
+.home-title {
+  font-size: 80px;
+  font-family: "Roboto", sans-serif !important;
+  color: rgba(34, 134, 222, 0.5);
+  animation: title 5s linear 2s infinite;
+}
+
+@keyframes title {
+  from {
+    color: rgba(34, 134, 222, 0.5);
+  }
+  to {
+    color: white;
+  }
 }
 
 .bg-semi-light {
@@ -362,7 +378,7 @@ form > input {
 /*///////////////////// CARD END \\\\\\\\\\\\\\\\\\\\\\\*/
 /*/////////////////////// SONG TAB \\\\\\\\\\\\\\\\\\\\\\\\*/
 .eachSong {
-  margin: auto;
+  margin: 15px auto;
   padding: 5px;
 }
 
@@ -410,10 +426,33 @@ form > input {
   width: 90%;
 }
 
-.song-tab-audio {
+.song-tab-audio,
+.song-by-artist-audio {
   width: 20%;
 }
 
+.song-by-artist {
+  display: flex;
+  margin-left: 50px;
+}
+
+.song-by-artist h1 {
+  color: white;
+  border-bottom: 1px solid white;
+  font-size: 24px;
+}
+
+.song-by-artist-title {
+  width: 40%;
+}
+
+.song-by-artist-title {
+  margin: 0;
+  padding-left: 10px;
+  color: white;
+}
+
+/*/////////////////////// SONG TAB END \\\\\\\\\\\\\\\\\\\\\\\\*/
 /*///////////////////// SEARCH BLOCK \\\\\\\\\\\\\\\\\\\\\\\*/
 .search-block {
   width: 95vw;
@@ -531,7 +570,7 @@ form > input {
 
 /*/////////////////// TRACKS \\\\\\\\\\\\\\\\\\\*/
 
-.container__tracks {
+/* .container__tracks {
   margin: 20vh auto;
   background-color: rgba(0, 0, 0, 0.3);
   color: white;
@@ -541,7 +580,7 @@ form > input {
   border-width: 4px;
   border-style: solid;
   box-shadow: 0 0 60px 10px black;
-}
+} */
 
 .create-name {
   background-color: transparent;
@@ -605,7 +644,7 @@ form > input {
   padding: 5px;
   background-color: rgb(33, 33, 33, 0.5);
   font-weight: bold;
-  color: #068348;
+  color: rgba(34, 134, 222, 0.8);
   border: transparent;
 }
 
