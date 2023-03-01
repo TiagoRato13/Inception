@@ -25,7 +25,11 @@
 <section class="song-block-edit">
   <h1>Edit {{playlist.name}}</h1>
 
-  <form action="/create-playlist" method="post" enctype="multipart/form-data">
+  <form
+    action="/playlist/{{playlist._id}}/edit"
+    method="post"
+    enctype="multipart/form-data"
+  >
     <label for="name">Name:</label>
     <input
       type="text"
